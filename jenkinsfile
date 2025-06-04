@@ -5,6 +5,6 @@ pipeline{
       stage('run python'){
           steps{
                sh "python3 test.py"
-}
-}
+  }
+ }
 }
