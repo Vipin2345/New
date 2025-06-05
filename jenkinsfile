@@ -1,8 +1,11 @@
 pipeline{
   agent {label 'linux-1'}
-  environment{
-     tool name: 'Git', type: 'git'
-   }
+  stages{
+      stage('checking the environment')
+          steps{
+                sh "echo $env"
+}
+}
   stages{
       stage('run python'){
           steps{
