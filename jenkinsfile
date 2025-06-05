@@ -3,7 +3,6 @@ pipeline{
   environment{
      tool name: 'Git', type: 'git'
    }
-
   stages{
       stage('run python'){
           steps{
