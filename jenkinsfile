@@ -4,10 +4,10 @@ pipeline{
       stage('checking the environment'){
           steps{
                 sh "echo $env"
-}
-}
-}
-  stages{
+              }
+          }
+
+ 
       stage('run python'){
           steps{
                sh "python3 test.py"
