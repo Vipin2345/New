@@ -1,5 +1,8 @@
 pipeline{
   agent {label 'linux-1'}
+  environment{
+     tool name: 'Git', type: 'git'
+   }
 
   stages{
       stage('run python'){
