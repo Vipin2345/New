@@ -1,5 +1,5 @@
 pipeline{
-  agent linux-1
+  agent {label 'linux-1'}
 
   stages{
       stage('run python'){
