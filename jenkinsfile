@@ -1,9 +1,10 @@
 pipeline{
   agent {label 'linux-1'}
   stages{
-      stage('checking the environment')
+      stage('checking the environment'){
           steps{
                 sh "echo $env"
+}
 }
 }
   stages{
