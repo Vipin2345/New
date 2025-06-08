@@ -10,16 +10,15 @@ pipeline{
 
                       }
        stage("Change Working Directory"){
-
-             steps {
+          steps{
                dir('terraform'){
                sh "terrfaorm init"
-      }
-    }
-   }
- } 
-}
-}
+               }
+         }  
+      }   
+    } 
+   }   
+  }
 }
                    
                          
