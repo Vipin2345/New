@@ -3,15 +3,12 @@ pipeline{
    stages{
        stage("AWS Deploy")
           steps{
-                withCredentials([
-                      string('aws_access_key_id', variable: "access_key")
-                      string('aws_secret_access_key', variable: "secret_key)
-                    ]){
+                    withCredentials([string(credentialsId: 'access_key', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'secret_key', variable: 'AWS_SECRET_ACCESS_KEY')]){
                        // this is access and secret key for AWS
                         sh "aws s3 ls"
                       }
-}
-}
+   }
+ } 
 }
                    
                          
