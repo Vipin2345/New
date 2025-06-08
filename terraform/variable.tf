@@ -3,3 +3,8 @@ variable "instance_ami" {
     description = "this is ami varaible"
     default = "ami-0f535a71b34f2d44a"
   }
+
+variable "aws_region" {
+     type = string
+     default = "ap-south-1"
+}
