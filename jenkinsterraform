@@ -7,7 +7,7 @@ pipeline{
                        // this is access and secret key for AWS
                         sh "aws s3 ls"
                         sh "aws ec2 describe-instances --query=Reservations[*].Instances[*][InstanceId] --region=$Region"
-                        dir("terraform"{
+                        dir("terraform"){
                             sh "terraform init" 
                       }
          }  
