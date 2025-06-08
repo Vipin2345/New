@@ -7,19 +7,15 @@ pipeline{
                        // this is access and secret key for AWS
                         sh "aws s3 ls"
                         sh "aws ec2 describe-instances --query=Reservations[*].Instances[*][InstanceId] --region=$Region"
-
+                        dir("terraform"{
+                            sh "terraform init" 
                       }
-       stage("Change Working Directory"){
-          steps{
-               dir('terraform'){
-               sh "terrfaorm init"
-               }
          }  
       }   
     } 
    }   
   }
-}
+
                    
                          
                          
