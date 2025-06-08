@@ -6,6 +6,7 @@ pipeline{
                         withCredentials([string(credentialsId: 'access_key', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'secret_key', variable: 'AWS_SECRET_ACCESS_KEY')]){
                        // this is access and secret key for AWS
                         sh "aws s3 ls"
+                        sh "aws ec2 describe-instances --query=Reservations[*].Instances[*][InstanceId]"
                       }
     }
    }
