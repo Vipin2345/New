@@ -1,6 +1,7 @@
 resource "aws_instance" "name" {
     ami = var.instance_ami
     instance_type = "t2.micro"
+    vpc_security_group_ids = data.aws_security_group.ssh_access.ids
     key_name = "web.pem"
     count = 2
     tags = {
