@@ -1,0 +1,25 @@
+pipeline{
+   agent{ label "linux-1"}
+   stages{
+       stage("AWS Deploy"){
+          steps{
+                        withCredentials([string(credentialsId: 'access_key', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'secret_key', variable: 'AWS_SECRET_ACCESS_KEY')]){
+                       // this is access and secret key for AWS
+                        sh "aws s3 ls"
+                        sh "aws ec2 describe-instances --query=Reservations[*].Instances[*][InstanceId] --filter='Name=Instance-state-name, Values=running' --region=$Region"
+                        dir("terraform"){
+                            sh "terraform init"
+                            sh "terraform plan"
+                            sh "terraform apply --auto-approve"
+                            sh "aws ec2 describe-instances --query=Reservations[*].Instances[*][InstanceId] --filter='Name=instance-state-name, Values=running'  --region=$Region"
+                             
+                      }
+         }  
+      }   
+    } 
+   }   
+  }
+
+                   
+                         
+                         
